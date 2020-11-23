@@ -53,15 +53,14 @@ console.log(area);
 // Set the win state to false
 let win = false;
 
+// Lives of the player (points)
+const state = State.getInstance()
+state.userLives()
+
 // While the win state is false
 while (win == false) {
 
     // Game starts
-    // Lives of the player (points)
-    const state = State.getInstance()
-
-    state.userLives()
-
     // User life point deduction function
     function loseLife() {
         state.lives -= 1;
@@ -88,6 +87,7 @@ while (win == false) {
                 // If the user wants to exit
             } else if (userInput == "exit") {
                 console.log("Request received. Exiting game...");
+                console.log("The word was: " + randomWord + ".");
                 break;
 
                 // If the input doesn't match the randomized word
@@ -127,6 +127,7 @@ while (win == false) {
         // If the player runs out of lives
     } else {
         console.log("You are out of lives.");
+        console.log("The word was: " + randomWord + ".");
         break;
     }
 }
